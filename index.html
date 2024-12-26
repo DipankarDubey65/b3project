@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %}
+     Omkareswer News india Index
+{% endblock %}
+{% block x %}
+
+<div class="row slider">
+    <div class="col-sm-7 py-0 s1">
+        <!--start slider-->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+
+                    <img src="{% static 'images/pt1.jpg'%}" class="d-block   w-100"  style="..."  alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Should India encourage dialogue between PM Modi, Xi Jinping at SCO summit in Uzbekistan?</h5>
+                        <p>Should India encourage dialogue between PM Narendra Modi and Chinese
+                            President Xi Jinping at the SCO summit in Uzbekistan? Defence and strategic
+                            .</p>
+                    </div>
+                </div>
+                <!--loop-->
+                {% for a in res %}
+                <div class="carousel-item">
+
+                    <!--endloop-->
+                    <img src="/{{a.spic}}" class="d-block w-100" style="..." alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{a.shead}}</h5>
+                        <p>{{a.ssubject}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!--end slider-->
+    </div>
+
+    <div class="col-sm-5 s2" style="height:470px; overflow-x:auto;">
+ <marquee direction="up" behavior="alternate" height="470px">
+        <!--start card-->
+        {% for x in ndata %}
+
+        <div class="card mb-3 w-100" style="max-height:540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{x.npic}}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{x.nhead}}</h5>
+
+                        <p class="card-text"><small class="text-muted"> Date<i class="fa-solid fa-calendar"></i>
+                            {{x.ndate}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+     {% endfor %}
+            </marquee>
+        <!--end card-->
+    </div>
+</div>
+<div class="row ncategry">
+
+<div class="col-sm-12">
+   <div class="row">
+       <h2 class="bg-mycolor text-center "> <b class="text-white">News  Category</b></h2>
+       {% for i in data %}
+       <div class="col-sm-3 my-3">
+           <div class="card">
+
+               <a href="/user/viewnews?msg={{i.id}}" style="text-decoration:none; color:black;">  <img src="/{{i.cpic}}" class="img-card-top"/></a>
+               <div class="card-body">
+                   <a href="/user/viewnews?msg={{i.id}}" style="text-decoration:none; color:#063c62;">
+                       <h5 class="card-title text-center" >{{i.category}}</h5></a>
+                   <i class="fa-solid fa-calendar "></i>  <i>Date: {{i.cdate}}</i>
+               </div>
+           </div>
+
+       </div>
+       {% endfor %}
+
+   </div>
+
+</div>
+
+</div>
+<div class="row inews">
+
+    <div class="col-sm-12">
+
+        <h2 class="text-center bg-mycolor"> <b class="text-white"> Our Latest News </b></h2>
+          <div class="row">
+
+             {% for x in dm %}
+            <div class="col-sm-4">
+                <div class="card my-3">
+                 <a href="/user/details?n={{x.id}} "> <img src="/{{x.npic}}" class="img-card-top" style="max-height:180px"/></a>
+                    <div class="card-body ">
+                        <a href="/user/details?n={{x.id}}" style="text-decoration:none; color:black;">   <h5> {{x.category}}</h5></a>
+
+                        <a href="/user/details?n={{x.id}}" style="text-decoration:none; color:black;">  <b>{{x.nhead}}</b></a><br/>
+
+                        <a href="/user/details?n={{x.id}}" style="text-decoration:none; color:black;">   <i>{{x.ntitle}}</i></a><br/>
+
+                        <a href="/user/details?n={{x.id}}" class="btn btn-sm text-mycolor bg-mycolor">View more</a>
+                        <a href="/user/details?n={{x.id}}" class="btn btn-sm bg-mycolor text-mycolor">{{x.ncity}}</a><br/>
+
+                        <span class="float-end">
+                        <i class="fa-solid fa-calendar"></i> Date :{{x.ndate}}
+                            </span>
+                    </div>
+                </div>
+
+            </div>
+              {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+</div>
+<div class="row vnews">
+
+    <div class="col-sm-12">
+ <h2 class="text-center bg-mycolor "> <b class="text-white"> Video Latest News </b></h2>
+
+
+<!--start video news-->
+
+<div class="row my-3" >
+
+
+    {% for i in vdata %}
+    <div class="col-sm-6 " >
+    <!--start card-->
+<div class="card mb-3 W-100" >
+  <div class="row g-0">
+    <div class="col-md-4">
+    <iframe class="w-100" src="{{i.vlink}}" title="You Tube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{i.vhead}}</h5>
+        <b class="card-text">{{i.vcategory}}</b><br/>
+            <b class="card-text"></b><br/>
+          <a href="/user/vdetail?vid={{i.id}}" class=" btn btn-sm  bg-mycolor text-mycolor">View more</a>
+          <a href="#" class=" btn btn-sm float-end bg-mycolor text-mycolor">{{i.vcity}}</a>
+
+          <p class="card-text"><small class="text-muted">
+              <i class="fa-solid fa-calendar"></i> Date : {{i.vdate}}
+          </small></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--end caed-->
+        </div>
+    {% endfor %}
+
+</div>
+    </div>
+
+<!--end video news-->
+<div class="col-sm-1"></div>
+          </div>
+
+    <div class="row ncategry">
+<div class="col-sm-12">
+   <div class="row">
+       <h2 class="bg-mycolor text-center "> <b class="text-white"> City Category</b></h2>
+       {% for i in city %}
+       <div class="col-sm-2 my-3">
+           <div class="card">
+
+               <img src="/{{i.cpic}}" class="img-card-top"/>
+               <div class="card-body">
+                   <a href="/user/viewnews?cid={{i.id}}" style="text-decoration:none; color:#063c62;">
+                       <h5 class="card-title text-center">{{i.ncity}}</h5></a>
+
+               </div>
+           </div>
+
+       </div>
+       {% endfor %}
+
+   </div>
+
+</div>
+
+</div>
+
+
+
+{% endblock %}

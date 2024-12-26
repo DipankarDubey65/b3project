@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title %}
+Omkara News India News
+{% endblock %}
+{% block x %}
+<div class="fs-2 text-center">Latest<b  class="text-danger"> News
+<i class="fa-solid fa-newspaper"></i></b>
+    </div>
+<div class="row">
+    <div class="col-sm-3">
+        <ul class="list-group">
+            <li class="list-group-item fs-4 bg-mycolor text-light text-center fw-bold">News Category <i class="fa-solid fa-newspaper"></i></li>
+       {% for x in cat %}
+            <li class="list-group-item ">
+           <!--star card-->
+           <div class="card mb-3 w-100" >
+  <div class="row g-0">
+    <div class="col-md-4">
+        <a href="/user/viewnews?msg={{x.id}}" style="text-decoration:none; color:black;">  <img src="/{{x.cpic}}" style="min-height:60px" class="img-fluid rounded-start sicon" alt=".."></a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <a href="/user/viewnews?msg={{x.id}}" style="text-decoration:none; color:black;">  <h5 class="card-title"> {{x.category}}</h5></a>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+       </li>
+            {% endfor %}
+
+
+        </ul>
+
+    </div>
+    <div class="col-sm-6">
+        {% for i in ndata %}
+        <div class="card">
+            <div class="row">
+            <div class="col-sm-4">
+                <a href="/user/details?n={{i.id}}" style="text-decoration:none; color:black;">   <img src="/{{i.npic}}" class="img-thumbnail sicon" /></a>
+            </div>
+            <div class="col-sm-8">
+                <div class="card-title">
+                    <a href="/user/details?n={{i.id}}" style="text-decoration:none; color:black;">  <h5><b>{{i.ntitle}}</b></h5></a><br/><br/>
+
+                    <a href="/user/details?n={{i.id}}" style="text-decoration:none; color:black;">   <span>{{i.nhead}}</span></a><br/>
+                    <a href="/user/details?n={{i.id}}" class="btn btn-sm  bg-mycolor text-mycolor">View more </a>
+
+                             <span class="btn btn-outline-danger btn-sm">{{i.category}}</span>
+                        <span class="btn btn-outline-danger btn-sm">{{i.ncity}}</span><br/>
+                        <i class="fa-solid fa-calendar"> Date:</i>
+                    <span class="text-muted">{{i.ndate}}</span>
+
+
+                </div>
+
+            </div>
+        </div>
+</div>
+        {% endfor %}
+    </div>
+
+    <div class="col-sm-3">
+        <ul class="list-group">
+            <li class="list-group-item fs-4 bg-mycolor text-light text-center fw-bold">City Category <i class="fa-solid fa-newspaper"></i></li>
+       {% for x in ct %}
+            <li class="list-group-item ">
+           <!--star card-->
+           <div class="card mb-3 w-100" >
+  <div class="row g-0">
+    <div class="col-md-4">
+        <a href="/user/viewnews?cid={{x.id}}" style="text-decoration:none; color:black;">  <img src="/{{x.cpic}}" style="min-height:60px" class="img-fluid rounded-start sicon" alt=".."></a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <a href="/user/viewnews?cid={{x.id}}" style="text-decoration:none; color:black;"> <h5 class="card-title"> {{x.ncity}}</h5></a>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+       </li>
+            {% endfor %}
+
+
+        </ul>
+
+    </div>
+
+
+
+</div>
+
+
+
+{% endblock %}

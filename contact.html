@@ -1,0 +1,104 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+ Omkara News india Contact Us
+{% endblock %}
+
+{% block x %}
+
+<div class="fs-2 text-center">Contact<b class="text-danger "> Us
+<i class="fa-regular fa-address-book"></i></b>
+    </div>
+<div class="row my-5">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4  frm" >
+        {% if msg %}
+        <div class="alert alert-success">
+            Your Data saved Successfully....
+        </div>
+        {% endif %}
+        <b class="fs-3 " style="color:#063c62; text:center;">Log-in User</b><br/><br/>
+        <form  method="post">
+
+            {% csrf_token %} <!--for security purpose full name:csrf=> -->
+            <div class="input-group mb-3">
+            <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-user"></i></i>
+                <input name="name" required type="text" class="form-control" placeholder="Name."/>
+            </div>
+            <div class="input-group mb-3">
+            <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-envelope"></i></i>
+                <input name="email" required type="email" class="form-control" placeholder="Email"/>
+
+            </div>
+            <div class="input-group mb-3">
+            <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-phone"></i></i>
+                <input name="mob" type="number" required class="form-control" placeholder="mobile"/>
+
+            </div>
+            <div class="input-group mb-3">
+            <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-message"></i></i>
+                <textarea name="msg" type="text" required class="form-control" placeholder="Message.."></textarea>
+
+            </div>
+            <input type="submit" value="Save" class="form-control bg-mycolor text-mycolor"/>
+
+
+        </form>
+        <div class="alert alert-success">
+        <!--
+            Name Is:{{Name}}<br/>
+            Email Is:{{Email}}<br/>
+            Number is:{{Mobile}}<br/>
+            Message is:{{Message}}<br/>
+        -->
+        </div>
+
+    </div>
+<div class="col-sm-2"></div>
+    <div class="col-sm-4 ">
+        <div class="card m-2 p-4">
+            <b class="text-center fs-3" style="color:#063c62;">Contact  Info</b>
+            <hr/>
+            <b class= "fs-4" style="color:#063c62;">Address</b>
+            <p>
+                            Plot No-44, Behind H.P Petrol Pump,<br>
+                            Tedhi Pulia Ring Rd, Sector 5,<br>
+                            Vikas Nagar, Lucknow <br>
+                            Uttar Pradesh 226022
+                        </p>
+            <div class="contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <strong >Call US </strong>
+
+                        <p>
+                            <a href="tel:+91 7007237006">+91 7007237006</a><br/>
+                            <a href="tel:+91 8052978684">+91 8052978684</a>
+                        </p>
+                <div class="contact">
+                        <i class="far fa-envelope"></i>
+                        <strong>Mail Us  </strong>
+                        <p>
+                            <a href="mailto:techpilelko@gmail.com">techpilelko@gmail.com</a><br/>
+                            <a href="mailto:hr@techpile.in">hr@techpile.in</a>
+                        </p>
+                    </div>
+
+                    </div>
+
+
+        </div>
+    </div>
+    <div class="container-fluid newSection">
+    <h3 class="sectionTitle text-center"><i class="fa-solid fa-location-dot"></i> <b style="color:#063c62;">Find us on Google Map</h3>
+    <p class="sectionContent">
+        View us on Google map easily
+    </p>
+    <div class="col">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1588441496056!2d80.96423161504458!3d26.898453483133807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39995785d5f7f1a5%3A0xffa47f1efe103f0d!2sTechpile+Technology+Pvt.+Ltd.!5e0!3m2!1sen!2sin!4v1539247368696" frameborder="0" height="300px" width="100%" style="border:0" allowfullscreen=""></iframe>
+    </div>
+</div>
+
+    <div class="col-sm-1"></div>
+</div>
+</div>
+{% endblock %}

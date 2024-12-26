@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{% block title %}
+ Omkara News India  Video Category
+{% endblock%}
+{% block x %}
+<style>
+    .txt
+    {
+    height:55px;
+    }
+</style>
+<div class="fs-2 text-center">video<b class="text-danger ">News
+<i class="fa-solid fa-video"></i></b>
+    </div>
+<div class="row my-3">
+    <div class="col-sm-6 mx-auto bg-mycolor p-3">
+        <div class="row">
+            <form method="get">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control  txt"/>
+                <span class="input-group-text btn btn-mycolor">
+                    <input type="submit"   class="btn btn-mycolor bg-danger" value="search"/>
+                </span>
+
+            </div>
+                </form>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    {% for i in data %}
+    <div class="col-sm-6">
+    <!--start card-->
+<div class="card mb-3 W-100" >
+  <div class="row g-0">
+    <div class="col-md-4">
+    <iframe class="w-100"  src="{{i.vlink}}" title="You Tube video player"  frameborder="0" allow="accelerometer; autoplay; clipboard-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{i.vhead}}</h5>
+        <b class="card-text">{{i.vcategory}}</b><br/>
+            <b class="card-text"></b><br/>
+          <a href="/user/vdetail?vid={{i.id}}" class=" btn btn-sm  bg-mycolor  text-mycolor">View more</a>
+          <a href="#" class=" btn btn-sm float-end bg-mycolor text-mycolor">{{i.vcity}}</a>
+
+          <p class="card-text"><small class="text-muted">
+              <i class="fa-solid fa-calendar"></i> Date : {{i.vdate}}
+          </small></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--end caed-->
+        </div>
+    {% endfor %}
+
+</div>
+
+
+{% endblock %}

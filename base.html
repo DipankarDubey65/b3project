@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+{%load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        {% block title %}
+        Home pages
+        {% endblock %}
+    </title>
+       <link href="{% static 'images/om1.jpg'%}" rel="icon" />
+    <link href="{% static 'css/all.css'%}" rel="stylesheet" />
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <style>
+        .bg-mycolor
+        {
+        background:#063c62;
+
+        }
+        .text-mycolor
+        {
+        color:white;
+        }
+        .sicon
+        {
+
+        padding:3%
+        border-radius:2px;
+        color:white;
+        }
+        .sicon:hover
+        {
+        background:none;
+        transform:scale(1.1);
+        transition:all ease 1s;
+        color:red;
+
+        }
+        .bfooter
+        {
+        min-height:50px
+
+
+        }
+.bfooter a
+{
+text-decoration:none;
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row top bg-mycolor text-white text-center py-2">
+ <div class="col-sm-1 "> <img src="{%static 'images/om1.jpg'%}" height="30px" width="30px" style="border-radius:20px"/></div>
+ <div class="col-sm-5">
+    <i class="fa-solid fa-envelope sicon"></i>
+    <a href="dipankardubey138@gmail.com" style="text-decoration:none; color:white;">dipankardubey138@gmail.com</a>
+</div>
+    <div class="col-sm-5">
+        <a href="https://www.instagram.com/dipankar.dubey65/" > <i class="fa-brands fa-instagram sicon"></i></a>
+        <a href="https://www.facebook.com/dipankar.dubey.906/">    <i class="fa-brands fa-facebook sicon"></i></a>
+        <a href="https://twitter.com/dubey_dipankar">  <i class="fa-brands fa-twitter sicon"></i></a>
+ <a href="https://www.youtube.com/channel/UCO2IKs45FB8I1uKbsnpoRNA/videos" > <i class="fa-brands fa-youtube sicon"></i></a>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+<div class="row header py-2 sticky-top bg-light ">
+    <div class="logo fs-3 text-center col-sm-4 ">
+   <img src="{%static 'images/om1.jpg'%}" height="30px" width="30px" style="border-radius:20px" />  <b style="font-family:impact; color:#063c62;">OMKARESHWER NEWS INDIA <i class="fa-solid fa-newspaper"></i> </b>
+
+</div>
+    <!--start menu-->
+    <div class="menu text-center col-sm-8  ">
+        <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active  " aria-current="page" href="/user/index/"><i class="fa-solid fa-house" ></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/about/"><i class="fa-solid fa-address-card"></i> About Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/user/news/"><i class="fa-solid fa-newspaper"></i> News</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/user/contact/"> <i class="fa-solid fa-phone"></i> Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+
+
+           <li class="nav-item">
+           <a class="nav-link" href="/admin/"><i class="fa-sharp fa-solid fa-user"></i> Log-in</a>
+        </li>
+           <a class="nav-link dropdown-toggle" href=" " role="button" data-bs-toggle="dropdown" aria-expanded="false">
+         <i class="fa-solid fa-image"></i> Gallery
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/user/video/">Video</a></li>
+            <li><a class="dropdown-item" href="/user/gallery/">Gallery</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+        <!--End menu-->
+    </div>
+    </div>
+
+
+
+<div class="row content bg-light" style="">
+    <div class="col-sm-12 py-2 min-height">
+
+        {%block x %}
+
+
+        {% endblock %}
+    </div>
+
+</div>
+
+<div class="row w-100% ufooter bg-black text-white p-2">
+<div class="col-sm-4 ">
+    <h2>NewsMag</h2>
+    We believe that greate journalism
+    has the power to make each reader's
+    life richer and more fulfilling.
+    and all of society stronger and more just.
+    <br/>
+
+</div>
+    <div class="col-sm-4 ">
+        <h5>Even More News</h5>
+        <img src="{%static  'images/pic1.jpg'%}" height="50px" width="60px" class="sicon"/>
+        Things you may have  missed over the weekend<br/><br/>
+        <img src="{%static 'images/pic3.jpg'%}" height="50px" width="60px" class="sicon"/>
+        QUEEN ELIZABETH II | 1926-2022<br/><br/>
+        <img src="{%static 'images/pic32.jpg'%}" height="50px" width="60px" class="sicon"/>
+       L.A. Times electoral endorsements for November 2022
+    </div>
+    <div class="col-sm-4 ">
+
+        <h5>Popular Category</h5>
+        International<br/>
+        Sports<br/>
+        Politics<br/>
+        Entertainment<br/>
+        Breaking News<br/>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+    <div class="row bfooter bg-mycolor text-white text-center py-2">
+    <div class="col-sm-6 ">
+        <b>Developed By :</b>
+        <a href="user/mydetails"   style="text-decoration:none ; color:white;">  Dipankar Dubey  </a>
+
+   <a href="https://www.instagram.com/dipankar.dubey65/" ><i class="fa-brands fa-instagram sicon"></i></a>
+    <a href="https://www.facebook.com/dipankar.dubey.906/">   <i class="fa-brands fa-facebook sicon"></i></a>
+    <a href="https://twitter.com/dubey_dipankar"> <i class="fa-brands fa-twitter sicon"></i></a>
+    <a href="https://www.youtube.com/channel/UCO2IKs45FB8I1uKbsnpoRNA/videos" > <i class="fa-brands fa-youtube sicon"></i></a>
+
+    </div>
+    <div class="col-sm-6 ">
+
+       &copy; <a href="https://www.techpile.in/" class="text-mycolor" > Techpile Technology Pvt.Ltd</a>
+
+    </div>
+
+</div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

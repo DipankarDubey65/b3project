@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ Omkara News India all news
+{% endblock %}
+
+{% block x%}
+
+<div class="fs-2 text-center" xmlns="http://www.w3.org/1999/html">News<b class="text-danger">Details
+<i class="fa-solid fa-newspaper"></i></b>
+    </div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            <!--start news-->
+            {% for x in ndata %}
+            <div class="col-sm-4">
+                <div class="card">
+                    <a href="/user/details?n={{x.id}}" style="text-decoration:none; color:black;">    <img src="/{{x.npic}}" class="img-card-top"/></a>
+                    <div class="card-body">
+                       <a href="/user/ndetails?n={{x.id}}" style="text-decoration:none; color:black;"> <h5> {{x.category}}</h5></a>
+
+                        <a href="/user/details?n={{x.id}}" style="text-decoration:none; color:black;">  <b>{{x.nhead}}</b></a><br/>
+
+                        <a href="/user/details?n={{x.id}}" style="text-decoration:none; color:black;"> <i>{{x.ntitle}}</i></a><br/>
+
+                        <a href="/user/details?n={{x.id}}" class="btn btn-sm bg-mycolor">View more</a>
+                        <a href="/user/details?n={{x.id}}" class="btn btn-sm bg-dark text-white">{{x.ncity}}</a>
+
+                        <span class="float-end">
+                        <i class="fa-solid fa-calender-days"></i> Date :{{x.ndate}}
+                            </span>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+            <!--end news-->
+        </div>
+
+    </div>
+    <div class="col-sm-10"></div>
+</div>
+
+{% endblock %}
